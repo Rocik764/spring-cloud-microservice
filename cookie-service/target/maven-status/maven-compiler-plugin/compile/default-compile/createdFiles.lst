@@ -1,0 +1,7 @@
+workshop\sc\cs\feign\DecisionFallback.class
+workshop\sc\cs\model\ConnectedResponse.class
+workshop\sc\cs\feign\ActivityClient.class
+workshop\sc\cs\controller\CookieController.class
+workshop\sc\cs\feign\DecisionClient.class
+workshop\sc\cs\feign\ActivityFallback.class
+workshop\sc\cs\CookieServiceApplication.class

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-server" />
+        <module name="activity-service" />
+        <module name="decision-service" />
+        <module name="eureka" />
+        <module name="cookie-service" />
+        <module name="response" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="activity-service" target="11" />
+      <module name="config-server" target="11" />
+      <module name="cookie-service" target="11" />
+      <module name="decision-service" target="11" />
+      <module name="eureka" target="11" />
+      <module name="fortune-cookie" target="1.8" />
+      <module name="response" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="activity-service" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="cookie-service" options="-parameters" />
+      <module name="decision-service" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+    </option>
+  </component>
+</project>
