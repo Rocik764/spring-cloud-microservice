@@ -9,44 +9,75 @@
 # Dlatego, uruchamiając lokalnie dodaliśmy je do pliku host, żeby używać tej samej konfiguracji
 # bez względu na to, czy testujemy lokalnie, czy przy użyciu docker-compose.
 version: "3"
+networks:
+  network-spring-cloud:
+    driver: bridge
+  webproxy:
+    external: true
 services:
   config-server:
-    image: config-server
-    ports:
-      - "8888:8888"
+    image: rocik764/config-server:v1
+#    ports:
+#      - "8888:8888"
+    networks:
+      - network-spring-cloud
   eureka-peer1:
-    image: eureka-server
+    image: rocik764/eureka-server:v1
     environment:
       - SPRING_PROFILES_ACTIVE=peer1
       - LOGGING_LEVEL_COM_NETFLIX_DISCOVERY=DEBUG
     ports:
       - "8761:8761"
+    networks:
+      - network-spring-cloud
   eureka-peer2:
-    image: eureka-server
+    image: rocik764/eureka-server:v1
     environment:
       - SPRING_PROFILES_ACTIVE=peer2
       - LOGGING_LEVEL_COM_NETFLIX_DISCOVERY=DEBUG
     ports:
       - "8762:8762"
+    networks:
+      - network-spring-cloud
   activity-service:
-    image: activity-service
+    image: rocik764/activity-service:v1
     environment:
      - SPRING_PROFILES_ACTIVE=lazy
-    ports:
-      - "8010:8010"
+#    ports:
+#      - "8010:8010"
+    networks:
+      - network-spring-cloud
   decision-service:
-    image: decision-service
+    image: rocik764/decision-service:v1
     environment:
      - SPRING_PROFILES_ACTIVE=polite
-    ports:
-      - "8000:8000"
+#    ports:
+#      - "8000:8000"
+    networks:
+      - network-spring-cloud
   cookie-service:
-    image: cookie-service
+    image: rocik764/cookie-service:v3
+    environment:
+      VIRTUAL_HOST: springcloudapi.accesstpm.com
+      VIRTUAL_PORT: 3001
+      PROXY_ADDRESS_FORWARDING: "true"
+      LETSENCRYPT_HOST: springcloudapi.accesstpm.com
+      LETSENCRYPT_EMAIL: rsb@mail.com
     ports:
-      - "8080:8080"
+      - "3001:8080"
+    networks:
+      - network-spring-cloud
+      - webproxy
   cookie-service-frontend:
-    build: './frontend'
-    image: cookie-frontend
-    container_name: cookie-frontend
+    image: rocik764/cookie-frontend:v3
+    environment:
+      VIRTUAL_HOST: springcloud.accesstpm.com
+      VIRTUAL_PORT: 3000
+      PROXY_ADDRESS_FORWARDING: "true"
+      LETSENCRYPT_HOST: springcloud.accesstpm.com
+      LETSENCRYPT_EMAIL: rsb@mail.com
     ports:
       - "3000:3000"
+    networks:
+      - network-spring-cloud
+      - webproxy

@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import workshop.sc.cs.feign.ActivityClient;
 import workshop.sc.cs.feign.DecisionClient;
 import workshop.sc.cs.model.ConnectedResponse;
-import workshop.sc.model.Response;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://springcloud.accesstpm.com")
 @RestController
 public class CookieController {
+
     private final ActivityClient activity;
     private final DecisionClient decision;
 

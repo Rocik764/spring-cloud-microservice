@@ -63,7 +63,7 @@ class GetCookie extends React.Component {
                                 <h2>{this.state.myCookie.activityMsg}</h2>
                                 <button onClick={refreshPage} className="btn">New values</button>
                                 <a href="https://github.com/Rocik764/fortune-cookie">Server config</a><br/>
-                                <a href="https://github.com/Rocik764/fortune-cookie">Project repository</a>
+                                <a href="https://github.com/Rocik764/spring-cloud-microservice">Project repository</a>
                             </ActivityService>
                         </Container>
                     </>

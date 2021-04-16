@@ -1,12 +1,12 @@
 class CookieService {
 
     getCookie() {
-        return fetch('http://localhost:8080', {
+        return fetch('https://springcloudapi.accesstpm.com', {
             mode: "cors",
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "Origin": "http://localhost:3000"
+                "Origin": "https://springcloud.accesstpm.com"
             },
         }).then(response => response.json())
     }
