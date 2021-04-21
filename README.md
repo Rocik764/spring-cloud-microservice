@@ -10,8 +10,7 @@ the response to the frontend application where it's being displayed in styled co
 * [Server configuration](https://github.com/Rocik764/fortune-cookie)
 * [Docker images pulling from Docker hub: rocik764/image](https://hub.docker.com/)
 
-_main branch for local enviroment_
-_deploymentready branch for my VPS enviroment_
+_Master branch for local enviroment. Deploymentready branch for my VPS enviroment_
 
 ## Used dependencies
 * spring-boot-starter-web
