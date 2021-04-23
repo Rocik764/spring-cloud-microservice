@@ -2,6 +2,7 @@
 
 ## Table of contents
 * [About project](#about-project)
+* [Architecture diagram](#architecture-diagram)
 * [Technologies](#technologies)
 * [Used dependencies](#used-dependencies)
 * [Used plugins](#used-plugins)
@@ -19,6 +20,9 @@ the response to the frontend application where it's being displayed in styled co
 * [Docker images pulling from Docker hub: rocik764/image](https://hub.docker.com/)
 
 _Master branch for local enviroment. Deploymentready branch for my VPS enviroment_
+
+## Architecture diagram
+![spring_cloud_project](https://user-images.githubusercontent.com/63047043/115928446-657a0300-a486-11eb-9b18-ee41776ff777.png)
 
 ## Technologies
 * Spring Boot
